@@ -55,3 +55,40 @@ print(frequent_itemsets)
 # Print association rules
 print("\nAssociation Rules:")
 rules
+
+rules = rules.sort_values(['confidence', 'lift'], ascending =[False, False]) 
+
+rules
+
+rules.sort_values(by='support', ascending=False)
+
+# Sort rules by support in descending order
+sorted_rules = rules.sort_values(by='support', ascending=False)
+
+# Calculate cumulative support
+cumulative_support = np.cumsum(sorted_rules['support'] / np.sum(sorted_rules['support']) * 100)
+
+# Bar plot for Support
+fig, ax1 = plt.subplots(figsize=(8, 6))
+ax1.bar(range(len(sorted_rules)), sorted_rules['support'], align='center')
+plt.xticks(range(len(sorted_rules)), ['' for _ in range(len(sorted_rules))])  # Remove x-axis labels
+ax1.set_xlabel('Association Rule')
+ax1.set_ylabel('Support')
+ax1.set_title('Support of Association Rules')
+
+# CDF plot for cumulative support
+ax2 = ax1.twinx()
+ax2.plot(range(len(sorted_rules)), cumulative_support, color='#AA4A44', linestyle='--')
+ax2.set_ylabel('Cumulative Support (%)', c='#AA4A44')
+
+plt.tight_layout()
+plt.show()
+
+# Scatter plot for Confidence vs. Support
+plt.figure(figsize=(8, 6))
+plt.scatter(rules['support'], rules['confidence'], alpha=0.4)
+plt.xlabel('Support')
+plt.ylabel('Confidence')
+plt.title('Confidence vs. Support of Association Rules')
+plt.tight_layout()
+plt.show()
