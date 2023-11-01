@@ -3,10 +3,10 @@ Market Basket Analysis using Association Algorithms on a dataset to generate ins
 
 Dependencies required:
 1. Python <=3.11.5
-2. Latest version of Numpy
-3. Latest version of Pandas
-4. Latest version of Matplotlib
-5. Latest version of Mlxtend
+2. Latest version of Numpy (v1.26.1 current)
+3. Latest version of Pandas (v2.1.2 current)
+4. Latest version of Matplotlib (v3.8.1 current)
+5. Latest version of Mlxtend (v0.23.0 current)
 
 Tested and run on Visual Studio Code on Python v3.11.5 from Anaconda. This program can also be run on Spyder, Google Colab and Jupyter Notebook with the appropriate kernel.
 
